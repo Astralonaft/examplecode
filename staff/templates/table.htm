@@ -1,0 +1,57 @@
+<main role="main" class="flex-shrink-0">
+    <div id="app" class="bg-light rounded mr-md-3 ml-md-3 pt-3 px-3 pt-md-1 pb-md-3 overflow-hidden">
+
+        <div class="my-3 p-1 text-center">
+            <h2 class="display-5"><?php echo $pageTitle ?></h2>
+            <p class="lead text-muted small">
+                <a href="http://web.aanda.ru/new/">Web</a> | <a href="http://web.aanda.ru/new/user/"><?php echo $pageTitle ?></a>
+            </p>
+        </div>
+        <div class="showdata bg-white shadow-lg mx-auto mb-3 p-3" >
+
+            <table id="StaffList" class="table table-bordered table-hover" data-buttons-class="light" <?php echo $tableParams ?> >
+            <thead class="thead-light">
+                <tr>
+                    <th
+                            data-field="cnt"
+                            data-sortable="true"
+                    >№</th>
+
+                    <th
+                            data-field="id"
+                            data-sortable="true"
+                    >id</th>
+
+                    <th
+                            data-field="lastname"
+                            data-sortable="true"
+                    >Фамилия</th>
+
+                    <th
+                            data-field="firstname"
+                            data-sortable="true"
+                    >Имя</th>
+
+                    <th
+                            data-field="office"
+                            data-sortable="true"
+                    >Офис</th>
+
+                    <th
+                            data-field="email"
+                            data-sortable="true"
+                    >Эл. почта</th>
+                    <th
+                            data-field="post"
+                            data-sortable="true"
+                    >Должность</th>
+
+
+                </tr>
+            </thead>
+
+            </table>
+        </div>
+
+    </div>
+</main>

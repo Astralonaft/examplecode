@@ -1,0 +1,161 @@
+    <main role="main" class="flex-shrink-0">
+        <div class="bg-light rounded mr-md-3 ml-md-3 pt-3 px-3 pt-md-1 pb-md-3 overflow-hidden">
+            <div class="my-3 p-1 text-center">
+                <h2 class="display-5"><?php echo $h2 ?></h2>
+                <p class="lead text-muted small">
+                    <a href="http://web.aanda.ru/new/">Web</a> | <a href="http://web.aanda.ru/new/report/">Отчеты</a> | Отчет по шлюзам
+                </p>
+            </div>
+            <div class="bg-white shadow-lg mx-auto mb-3 p-3">
+                <form>
+                    <div class="form-row">
+                        <div class="col-auto">
+                            <div class="form-group">
+                                <select class="selectpicker show-tick">
+                                    <option>2018-2019</option>
+                                    <option>2017-2018</option>
+                                    <option>2016-2017</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-group">
+                                <select class="selectpicker show-tick">
+                                    <option value="">За год</option>
+                                    <option>1 квартал</option>
+                                    <option>2 квартал</option>
+                                    <option>3 квартал</option>
+                                    <option>4 квартал</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-group">
+                                <select class="selectpicker show-tick" multiple data-live-search="true" title="Не определено...">
+                                    <option value="1">Наш сайт</option>
+                                    <option value="2">Клиент</option>
+                                    <option value="3">Клиент XML</option>
+                                    <option value="4">Клиент SOAP</option>
+                                    <option value="5">Клиент Frame</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-group">
+                                <select class="selectpicker show-tick">
+                                    <option value="">Интеграции</option>
+                                    <option>Прямая интеграция</option>
+                                    <option>OBT</option>
+                                    <option>Не определено</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-group">
+                                <select class="selectpicker show-tick">
+                                    <option value="">Все интеграции</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox custom-control-inline pt-2">
+                                    <input type="checkbox" class="custom-control-input" id="same-address">
+                                    <label class="custom-control-label" for="same-address">Тестовые</label>
+                                </div>
+                                <div class="custom-control custom-checkbox custom-control-inline pt-2">
+                                    <input type="checkbox" class="custom-control-input" id="save-info">
+                                    <label class="custom-control-label" for="save-info">Не активные</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-group sandbox-container">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-primary btn-md" type="submit">Искать</button>
+                        </div>
+                    </div>
+                </form>
+
+
+                <ul class="nav nav-tabs mt-3 pt-3" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="LinkReportSluice1" data-toggle="tab" href="#TabReportSluice1" role="tab" aria-controls="home" aria-selected="true">Отчет по шлюзам</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="LinkReportSluice2" data-toggle="tab" href="#TabReportSluice2" role="tab" aria-controls="profile" aria-selected="false">Заказы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="LinkReportSluice3" data-toggle="tab" href="#TabReportSluice3" role="tab" aria-controls="contact" aria-selected="false">Доля заказов</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="LinkReportSluice4" data-toggle="tab" href="#TabReportSluice4" role="tab" aria-controls="contact" aria-selected="false">Прирост</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="TabReportSluice1" role="tabpanel" aria-labelledby="LinkReportSluice1">
+                        <table class="sort table table-responsive table-hover mt-3 mb-4 w-100 d-block d-md-table">
+                            <thead>
+                            <tr>
+                                <td data-toggle="tooltip" data-placement="top" data-original-title="">№</td>
+                                <td data-toggle="tooltip" data-placement="top" data-original-title="">Код шлюза</td>
+                                <td data-toggle="tooltip" data-placement="top" data-original-title="">Шлюз</td>
+                                <td data-toggle="tooltip" data-placement="top" data-original-title="">Тип</td>
+                                <td data-toggle="tooltip" data-placement="top" data-original-title="">Бренд</td>
+                                <td data-toggle="tooltip" data-placement="top" data-original-title="">Заказов</td>
+                                <td data-toggle="tooltip" data-placement="top" data-original-title="">Подробнее</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>Заказы МИКИ</td>
+                                <td>Клиент</td>
+                                <td>Заказы МИКИ</td>
+                                <td>0</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>1</td>
+                                <td>Ивентэксперт</td>
+                                <td>Клиент</td>
+                                <td>Ивентэксперт</td>
+                                <td>0</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>ASIA SALE</td>
+                                <td>Клиент</td>
+                                <td>ASIA SALE</td>
+                                <td>0</td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Предыдущая</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Следующая</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="tab-pane fade" id="TabReportSluice2" role="tabpanel" aria-labelledby="LinkReportSluice2">
+                        2
+                    </div>
+                    <div class="tab-pane fade" id="TabReportSluice3" role="tabpanel" aria-labelledby="LinkReportSluice3">3</div>
+                    <div class="tab-pane fade" id="TabReportSluice4" role="tabpanel" aria-labelledby="LinkReportSluice4">4</div>
+                </div>
+
+            </div>
+        </div>
+    </main>

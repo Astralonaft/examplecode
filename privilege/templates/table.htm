@@ -1,0 +1,23 @@
+<main role="main" class="flex-shrink-0">
+    <div id="app" class="bg-light rounded mr-md-3 ml-md-3 pt-3 px-3 pt-md-1 pb-md-3 overflow-hidden">
+
+        <div class="my-3 p-1 text-center">
+            <h2 class="display-5"><?php echo $title ?></h2>
+            <p class="lead text-muted small">
+                <a href="/new/">Web</a> | <a href="/new/user/"><?php echo $title ?></a>
+            </p>
+        </div>
+        <div class="showdata bg-white shadow-lg mx-auto mb-3 p-3" >
+            <div id="toolbar">
+
+            </div>
+            <table id="UsersList" data-buttons-class="light" <?php echo $tableParams ?> >
+            <thead class="thead-light">
+            <tr>
+                <?php echo $columns ?>
+            </tr>
+            </thead>
+            </table>
+        </div>
+    </div>
+</main>

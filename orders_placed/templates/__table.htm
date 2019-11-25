@@ -1,0 +1,66 @@
+<main role="main" class="flex-shrink-0">
+	<div id="app" class="bg-light rounded mr-md-3 ml-md-3 pt-3 px-3 pt-md-1 pb-md-3 overflow-hidden">
+		<div class="my-3 p-1 text-center">
+			<h2 class="display-5">{{ title }}</h2>
+			<p class="lead text-muted small">
+				<a href="http://web.aanda.ru/new/">Web</a> | <a href="http://web.aanda.ru/new/orders_placed/">{{ title }}</a>
+			</p>
+		</div>
+		<div class="showdata bg-white shadow-lg mx-auto mb-3 p-3" >
+			кол-во <b>{{ qurentCount }}</b> | <i>Обновлено: {{ formattedTime }}</i>
+		</div>
+		
+		<div class="showdata bg-white shadow-lg mx-auto mb-3 p-3" >
+
+            <table id="ReportTable" class="table table-bordered table-hover" data-buttons-class="light" <?php echo $tableParams ?> >
+                <thead class="thead-light">
+                <tr>
+                    <th
+                            data-field="cnt"
+                            data-sortable="true"
+                            data-visible="true"
+                    >№</th>
+                    <th
+                            data-field="order_id"
+                            data-sortable="true"
+
+                    >Заказ ID</th>
+                    <th
+                            data-field="manager_image"
+                            data-sortable="true"
+                            data-visible="true"
+                    >Фото</th>
+                    <th
+                            data-field="manager_name"
+                            data-sortable="true"
+
+                    >Менеджер</th>
+                    <th
+                            data-field="hotel_name"
+                            data-sortable="true"
+
+                    >Отель</th>
+                    <th
+                            data-field="hotel_city"
+                            data-sortable="true"
+
+                    >Город</th>
+                    <th
+                            data-field="guest"
+                            data-sortable="true"
+
+                    >Гость</th>
+
+                    <th
+                            data-field="manager_office"
+                            data-sortable="true"
+
+                    >Офис</th>
+                </tr>
+                </thead>
+
+            </table>
+        </div>
+
+    </div>
+</main>

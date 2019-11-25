@@ -1,0 +1,31 @@
+<main role="main" class="flex-shrink-0">
+    <div id="app" class="bg-light rounded mr-md-3 ml-md-3 pt-3 px-3 pt-md-1 pb-md-3 overflow-hidden">
+        <div class="my-3 p-1 text-center">
+            <h2 class="display-5">{{ title }}</h2>
+            <p class="lead text-muted small">
+                <a href="/new/">Web</a> | <a href="/new/test/">{{ title }}</a>
+            </p>
+        </div>
+
+        <div class="showdata bg-white shadow-lg mx-auto mb-3 p-3" >
+            <add-item></add-item>
+            <table id="ReportTable" class="table table-bordered table-hover" data-buttons-class="light" <?php echo $tableParams ?> >
+            <thead class="thead-light">
+                <tr id="trTh"></tr>
+            </thead>
+
+            </table>
+        </div>
+        <div class="showdata bg-white shadow-lg mx-auto mb-3 p-3" >
+            <select v-model="select_user">
+                <option v-for="option in options_user" :value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+            <span>Выбрано: {{ select_user }}</span>
+        </div>
+    </div>
+
+    <?php require_once "../modal/modal_form_user.htm" ?>
+
+</main>

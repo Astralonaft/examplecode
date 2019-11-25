@@ -1,0 +1,318 @@
+<div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                <i class="mdi icon-sm mdi-lead-pencil"></i> Редактирование профиля сотрудника
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+
+            <form
+                    id="formUser"
+                    @submit="formSubmit"
+            >
+                <div class="container-fluid">
+                    <div class="form-row">
+                        <h3 class="col-md-12 text-light">Профиль</h3>
+
+                        <div class="form-group col-md-3">
+                            <label class="text-secondary">Имя</label>
+                            <input
+                                    class="form-control"
+                                    placeholder="Имя"
+                                    required="required"
+                                    name="name"
+                                    type="text"
+                                    v-model.trim="data_user.name"
+                                    v-input-validate
+                            />
+                            <div v-if="validation.name.errors.length">
+                                <ul>
+                                    <li v-for="error in validation.name.errors" class="InvalidFeedback">{{ error }}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label class="text-secondary">Фамилия</label>
+                            <input
+                                    class="form-control"
+                                    placeholder="Фамилия"
+                                    required="required"
+                                    name="surname"
+                                    type="text"
+                                    v-model.trim="data_user.surname"
+                                    v-input-validate
+                            />
+                            <div v-if="validation.surname.errors.length">
+                                <ul>
+                                    <li v-for="error in validation.surname.errors" class="InvalidFeedback">{{ error }}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label class="text-secondary">Отчество</label>
+                            <input
+                                class="form-control"
+                                placeholder="Отчество"
+                                name="patronymic"
+                                type="text"
+                                v-model.trim="data_user.patronymic"
+                                v-input-validate
+                            />
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label class="text-secondary" for="datepicker_birthday">День рождения</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="mdi icon-sm mdi-cake-variant" data-toggle="tooltip" data-placement="top" data-original-title="День Рождения"></i>
+                                    </div>
+                                </div>
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        id="datepicker_birthday"
+                                        v-model="data_user.birthday"
+                                />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+
+                        <div class="form-group col-md-3">
+                            <label class="text-secondary">Офис (город)</label>
+                            <component-select
+                                v-model="select_office.vModel"
+                                :custom-id="select_office.selectID"
+                                :custom-class="select_office.myClass"
+                                :custom-name="select_office.Name"
+                                :option-items="select_office.options"
+                                :default-selected-value="select_office.selectedValue"
+                                :on-selected-event="changeEvent"
+                            >
+                            </component-select>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label class="text-secondary">Отдел</label>
+                            <component-select
+                                v-model="select_departments.vModel"
+                                :custom-id="select_departments.selectID"
+                                :custom-class="select_departments.myClass"
+                                :custom-name="select_departments.Name"
+                                :option-items="select_departments.options"
+                                :default-selected-value="select_departments.selectedValue"
+                                :on-selected-event="changeEvent"
+                            >
+                            </component-select>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label class="text-secondary">Должность</label>
+                            <component-select
+                                v-model="select_position.vModel"
+                                :custom-id="select_position.selectID"
+                                :custom-class="select_position.myClass"
+                                :custom-name="select_office.Name"
+                                :option-items="select_position.options"
+                                :default-selected-value="select_position.selectedValue"
+                                :on-selected-event="changeEvent"
+                            >
+                            </component-select>
+
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <div class="row">
+                                <div class="input-group">
+                                    <div class="col-6">
+                                        <label class="text-secondary" for="timepicker_s">Время работы</label>
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">с:</div>
+                                            </div>
+                                            <input
+                                                    class="form-control timepicker_s"
+                                                    id="timepicker_s"
+                                                    name="time_work_start"
+                                                    type="text"
+                                                    v-model="data_user.time_work_start"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="timepicker_po">&nbsp;</label>
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">по:</div>
+                                            </div>
+                                            <input
+                                                    class="form-control timepicker_po"
+                                                    id="timepicker_po"
+                                                    name="time_work_end"
+                                                    type="text"
+                                                    v-model="data_user.time_work_end"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+
+                        <div class="form-group col-md-3">
+                            <div class="row">
+                                <div class="col-8">
+                                    <label class="text-secondary">Телефон</label>
+                                    <input
+                                            class="form-control work-user-phone"
+                                            name="phone"
+                                            type="text"
+                                            v-model="data_user.phone"
+                                            v-input-validate
+                                    />
+                                    <div v-if="validation.phone.errors.length">
+                                        <ul>
+                                            <li v-for="error in validation.phone.errors" class="InvalidFeedback">{{ error }}</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                                <div class="col-4">
+                                    <label class="text-secondary">доп.</label>
+                                    <input
+                                            class="form-control"
+                                            name="phone_dop"
+                                            type="text"
+                                            v-model="data_user.phone_dop"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label class="text-secondary">Моб. телефон</label>
+                            <input
+                                    class="form-control new-user-phone"
+                                    name="phone_mobile"
+                                    type="text"
+                                    v-model.trim="data_user.phone_mobile"
+                                    v-input-validate
+                            />
+                            <div v-if="validation.phone_mobile.errors.length">
+                                <ul>
+                                    <li v-for="error in validation.phone_mobile.errors" class="InvalidFeedback">{{ error }}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label class="text-secondary">Эл. почта</label>
+                            <input
+                                    name="email"
+                                    type="email"
+                                    class="form-control"
+                                    placeholder="Эл. почта"
+                                    autocomplete="off"
+                                    v-model.trim="data_user.email"
+                                    v-input-validate
+                            />
+                            <div v-if="validation.email.errors.length">
+                                <ul>
+                                    <li v-for="error in validation.email.errors" class="InvalidFeedback">{{ error }}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label class="text-secondary">Skype</label>
+                            <input
+                                    class="form-control"
+                                    name="skype"
+                                    type="text"
+                                    v-model.trim="data_user.skype"
+                            />
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+
+                        <div class="form-group col-md-3">
+                            <label class="text-secondary">Фото сотрудника</label>
+                            <!-- <input type="file" name="img[]" class="file-upload-default"> -->
+
+                            <div class="input-group col-xs-12">
+                                <img class="ProfileImg d-block rounded-circle mx-auto mb-2" :src="data_user.image" width="200" alt="profile image">
+                            </div>
+                            <div class="input-group col-xs-12">
+                                <input
+                                        type="text"
+                                        class="form-control file-upload-info"
+                                        placeholder="Upload Image"
+                                        v-model.trim="data_user.image_name"
+                                />
+                                <span class="input-group-append">
+                                    <button class="file-upload-browse btn btn-info" type="button">Выбрать</button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-9">
+                            <label >Примечание</label>
+                            <textarea class="form-control" name="note" cols="50" rows="6"></textarea>
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+
+                        <h3 class="col-md-12 text-light">Привилегии</h3>
+
+                        <div class="form-group col-md-3">
+                            <label class="text-secondary" for="SelectRoles">Роль в системе</label>
+                            <select id="SelectRoles" class="selectpicker show-tick"  name="role_id[]">
+                                <?php
+                                    foreach($select_roles AS $id => $name)
+                                    {
+                                        echo '<option value="' . $id . '">' . $name . '</option>';
+                                    }
+                                ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <div class="custom-control custom-checkbox custom-control-inline pt-2">
+                                <input
+                                        id="system_access"
+                                        type="checkbox"
+                                        class="custom-control-input"
+                                        name="system_access"
+                                        v-model.trim="data_user.system_access"
+                                />
+                                <label class="custom-control-label" for="system_access">Доступ в систему</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-dismiss="modal" >Закрыть без сохранения</button>
+            <button
+                    type="submit"
+                    class="btn btn-primary"
+                    form="formUser"
+                    :action="action">Сохранить изменения</button>
+        </div>
+    </div>
+</div>

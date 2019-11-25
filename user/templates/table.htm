@@ -1,0 +1,55 @@
+<main role="main" class="flex-shrink-0">
+    <div id="app" class="bg-light rounded mr-md-3 ml-md-3 pt-3 px-3 pt-md-1 pb-md-3 overflow-hidden">
+        <div class="my-3 p-1 text-center">
+            <h2 class="display-5"><?php echo $title ?></h2>
+            <p class="lead text-muted small">
+                <a href="/new/">Web</a> | <a href="/new/user/"><?php echo $title ?></a>
+            </p>
+        </div>
+        <div class="showdata bg-white shadow-lg mx-auto mb-3 p-3" >
+            <div id="toolbar">
+                <button
+                        type="button"
+                        class="btn btn-link"
+                        data-toggle="modal"
+                        data-target="#EditModal"
+                        v-on:click = "viewFormNewUser"
+                >
+                    <i class="mdi mdi-account-plus"></i>
+                </button>
+            </div>
+            <!-- @click - отслеживает события -->
+            <table id="UsersList" <?php echo $tableParams ?> @click="getDataInterface($event)">
+                <thead class="thead-light">
+                    <tr>
+                        <?php echo $columns ?>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- Модальное окно просмотра сотрудника -->
+        <div id="ViewModal" class="modal" tabindex="-1" role="dialog">
+            <?php require_once "../user/templates/modal_card_user.htm" ?>
+        </div>
+        <!-- / Модальное окно просмотра сотрудника -->
+        <!-- Модальное окно редактирование сотрудника -->
+        <div id="EditModal" class="modal" tabindex="-1" role="dialog">
+            <?php require_once "../user/templates/modal_form_user.htm" ?>
+        </div>
+        <!-- / Модальное окно редактирование сотрудника -->
+    </div>
+</main>
+<!-- Модальное окно подтверждения удаления -->
+<div id="ConfirmModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <p class="text-center mb-4 mt-4 text-muted font-weight-bold">Вы действительно хотите удалить?</p>
+            <p class="text-center mb-4 mt-4">
+                <button type="button" class="btn mr-2 btn-light" data-dismiss="modal">Отмена</button>
+                <button type="button" class="btn btn-primary">Удалить</button>
+            </p>
+        </div>
+    </div>
+</div>
+<!-- / Модальное окно подтверждения удаления -->
+

@@ -1,0 +1,66 @@
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="card card-statistics social-card card-default">
+                <div class="card-header header-sm">
+                    <div class="d-flex align-items-center">
+                        <div class="wrapper d-flex align-items-center">
+                            &nbsp;
+                        </div>
+                        <div class="wrapper ml-auto">
+                            <!--
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            -->
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <img class="ProfileImg d-block rounded-circle mx-auto mb-2" :src="data_user.image" alt="profile image">
+                    <h3 class="text-center user-name">{{ data_user.name }} {{ data_user.surname }} {{ data_user.patronymic }}</h3>
+                    <p class="text-center mb-2 text-secondary">{{ data_user.office }} / </p>
+                    <p class="text-center mb-2 text-muted font-weight-bold">{{ data_user.post }}</p>
+
+                    <div class="row pt-3 mt-auto">
+                        <div class="col-md-6 col-sm-12">
+                            <h2 class="text-center font-weight-medium">
+                                <i class="mdi mdi-phone text-info mr-1"></i>
+                            </h2>
+                            <p class="text-center mb-4 text-nowrap">
+                                <a href="tel:" class="text-muted">{{ data_user.phone }} доп. {{ data_user.phone_dop }}</a>
+                            </p>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <h2 class="text-center font-weight-medium">
+                                <i class="mdi mdi-cellphone-iphone text-info mr-1"></i>
+                            </h2>
+                            <p class="text-center mb-4 text-nowrap">
+                                <a href="tel:" class="text-muted">{{ data_user.phone_mobile }}</a>
+                            </p>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <h2 class="text-center font-weight-medium">
+                                <i class="mdi mdi-email-outline text-info mr-1"></i>
+                            </h2>
+                            <p class="text-center mb-2 text-nowrap">
+                                <a :href="data_user.mailto" class="text-muted">{{ data_user.email }}</a>
+                            </p>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <h2 class="text-center font-weight-medium">
+                                <i class="mdi mdi-skype text-info mr-1"></i>
+                            </h2>
+                            <p class="text-center mb-2 text-nowrap">
+                                <a href="skype:" class="text-muted">{{ data_user.skype }}</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-dismiss="modal">Закрыть</button>
+        </div>
+    </div>
+</div>
